@@ -1,0 +1,56 @@
+Linear Regression Basics
+
+Linear Regression is a supervised learning algorithm that tries to predict a quantitative value of a dependent variable after considering multiple independent variables. For example, if we have a restaurant turnover prediction,
+we predict the restaurant's average turnover based on factors like location, cuisine, popularity, wait times, ambience, service etc. 
+Here the algorithm tries to draw a line that best fits the points and tries to minimize the distance between the points and the line. The line is given by the equation 
+
+y = mx+c 
+where m is the slope of the line and y is the intercept. Her it tries multiple values for m and c to check which gives the lowest error. 
+
+In multiple linear regression, the formula becomes:
+
+𝑦 =𝛽0 +𝛽1𝑥1 +𝛽2𝑥2 + ⋯ +𝛽𝑛𝑥𝑛 + 𝜀
+
+Assumptions in Linear Regression
+1. The dependent and independent variables should be linearly related.
+2. The errors between the actual and the predicted values should be normally distribuited. 
+3. There should not be any multicollinearity. Which means there should not be any strong correlation between two independent variables. 
+4. The variance between the errors should be consistent, there should not be any homoscedasticity. Which means when we plot the predictions vs the error values, there should not be a pattern.
+
+Metrics for Evaluation. 
+1. RMSE
+2. MSE
+3. MAE 
+4. R squared 
+5. Adjusted R squared. 
+
+Difference between R squared and Adjusted R squared 
+
+Here the R squared value is used to determine how well a feature can explain the variance of the dependent variable. 
+If the R squared value is high, then it is a good predictor. 
+If we add more variables, the R squared value increases. To see the impact of adding variables to our model we use adjusted R squared, if R squared and adjusted R-squared both increase then it 
+is a good variable to predict the dependent variable. If R squared increases and adjusted R squared decreases, then it is not a good addition. If it remains the same, there is no impact of
+adding that variable. 
+
+
+Ridge and Lasso Regression.
+
+Ridge and Lasso regression are forms of regularized regression. 
+Ridge regression is called L2 Norm 
+Cost Function: J(θ)=∑(yi− y^i)^2 +λ∑θj^2
+
+Shrinks all coefficients but never eliminates them completely.Good when all features contribute a little.
+​Lasso Regression is called the L1 Norm 
+Cost Function: J(θ)=∑(yi − y^i)^2 +λ∑∣θj∣
+
+Can shrink some coefficients exactly to zero. Performs automatic feature selection. Useful when you expect only a few features to be important.
+
+Variance Inflation Factor (VIF) 
+This is used to checkIt measures how redundant a variable is due to its correlation with other features. If the variables have VIF above 5 then they are not of much importance. So we check the VIF for all the variables 
+and try dropping them one by one to see the impact.
+
+Remove or combine correlated variables.
+Use dimensionality reduction (e.g., PCA).
+Try regularization techniques (like Ridge/Lasso) which handle multicollinearity well.
+
+
